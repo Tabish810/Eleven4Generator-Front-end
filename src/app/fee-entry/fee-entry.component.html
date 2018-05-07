@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div class="container main">
+  <fieldset>
+    <legend>Fee Entry</legend>
+  </fieldset>
+  <form>
+    <div class="form-group row">
+      <div class="col-md-5">
+        <div class="field">
+          <input type="text" name="name" [(ngModel)]="input.name" placeholder="Customer Name">
+          <label for="name">Customer Name</label>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="field">
+          <input type="text" name="panel" [(ngModel)]="input.panel" placeholder="Panel">
+          <label for="fullname">Panel</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-5">
+        <div class="field">
+          <input type="text" name="phone_no" [(ngModel)]="input.phone_no" placeholder="Phone Number">
+          <label for="phone_no">Phone Number</label>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="field">
+          <input type="number" name="paid" [(ngModel)]="input.paid" placeholder="Paid">
+          <label for="paid">Paid</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-5">
+        <div class="field">
+          <input type="text" name="street_no" [(ngModel)]="input.street_no" placeholder="Street Number">
+          <label for="street_no">Street Number</label>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="field">
+          <input type="number" name="ampere" (keyup)="findAmount()" [(ngModel)]="input.ampere" placeholder="Ampere">
+          <label for="ampere">Ampere</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-5">
+        <div class="field">
+          <input type="number" (keyup)="findBalance()" name="amount" [(ngModel)]="input.amount" placeholder="Amount">
+          <label for="amount">Amount</label>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="field">
+          <input type="number" name="balance" [(ngModel)]="input.balance" placeholder="Balance">
+          <label for="balance">Balance</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="field">
+          <input type="date" name="month_date" [(ngModel)]="input.month_date">
+          <label for="month_date">Date</label>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="field">
+          <input type="text" name="ID_Number" [(ngModel)]="input.id_number">
+          <label for="ID_Number">ID Number</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <input type="button" (click)="insertFee()" *ngIf="sendBtuttonCheck" class="btn btn-success" value="Submit Record">
+      </div>
+      <div class="col-md-4">
+        <input type="reset" class="btn btn-danger" value="Reset">
+      </div>
+    </div>
+  </form>
+</div>

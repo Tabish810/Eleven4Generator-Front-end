@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h3 class="text-center">Super Bank</h3>
+    <div class="row  search-form">
+      <form>
+        <div class="row">
+        <label class="form-group col-md-2">
+          <input routerLink="/admin-account"  value="My Bank" class="form-control btn btn-warning"/>
+        </label>
+        <div class="col-md-6"></div>
+        <div class="form-group col-md-4">
+            <div class="field">
+                <input type="text" name="searchMonth" [(ngModel)]="searchMonth" id="search_bar" placeholder="Search">
+                <label for="searchMonth">Search</label>
+            </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered search-table">
+      <tr class="info active">
+        <th>S.No</th>
+        <th>FROM</th>
+        <th>TO</th>
+        <th>RECIEVED AMOUNT</th>
+        <th>MONTH</th>
+        <th>DATE</th>
+      </tr>
+      <tr *ngFor="let items of list | SearchRecieved:searchMonth; index as i">
+        <td>{{i+1}}</td>
+        <td>{{items.from}}</td>
+        <td>{{items.to}}</td>
+        <td>{{items.sendAmount}}</td>
+        <td>{{items.month}}</td>
+        <td>{{items.date}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

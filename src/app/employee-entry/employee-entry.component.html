@@ -1,0 +1,76 @@
+<app-header></app-header>
+<div class="container main" >		
+  <fieldset><legend>Employee Entry</legend></fieldset>
+  <form>
+    <div class="form-group row">
+			<div class="col-md-1"></div>
+      <div class="col-md-5">
+					<div class="field">
+							<input type="text" name="name" [(ngModel)]="input.employeeName"  placeholder="Employee Name">
+							<label for="fullname">Employee Name</label>
+					</div>
+      </div>
+      <div class="col-md-5">
+					<div class="field">
+							<input type="password" name="password"[(ngModel)]="input.employeePassword"  placeholder="Employee Password">
+							<label for="fullname">Employee Password</label>
+					</div>
+      </div>
+    </div>
+    <div class="form-group row">
+				<div class="col-md-1"></div>
+      <div class="col-md-5">
+					<div class="field">
+							<input type="text" name="cnic"[(ngModel)]="input.employeeCnic" placeholder="CNIC">
+							<label for="fullname">CNIC</label>
+					</div>
+      </div>
+      <div class="col-md-5">
+					<div class="field">
+							<input type="text" name="contact" [(ngModel)]="input.employeeContact" placeholder="Employee Contact">
+							<label for="fullname">Employee Contact</label>
+					</div>
+      </div>
+    </div>
+    <div class="form-group row">
+				<div class="col-md-1"></div>
+      <div class="col-md-5">
+					<div class="field">
+							<input type="text" name="address" [(ngModel)]="input.employeeAdress" placeholder="Employee Address">
+							<label for="fullname">Employee Address</label>
+					</div>
+      </div>
+      <div class="col-md-5">
+					<div class="field">
+							<input type="number" name="amount" [(ngModel)]="input.employeeAmount" readonly value="0" placeholder="Amount">
+							<label for="fullname">Amount</label>
+					</div>
+      </div>
+    </div>
+    <div class="form-group row">
+			<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="field">
+						<input type="date" name="jDate"[(ngModel)]="input.employeeJoinMonth"  placeholder="Date Of Joining">
+						<label for="fullname">Date Of Joining</label>
+				</div>
+				</div>
+      <div class="col-md-5">
+					<div class="field">
+							<input type="text" name="type"[(ngModel)]="input.type"  placeholder="Employee Type">
+							<label for="fullname">Employee Type</label>
+					</div>
+      </div>
+		</div>
+		<div class="form-group row">
+				<div class="col-md-1"></div>
+			<div class="col-md-2"></div>
+			<div class="col-md-4">
+				<input type="button" class="btn btn-success" (click)="insertEmployee()"value="Submit Record">
+			</div>
+			<div class="col-md-4">
+				<input type="reset" class="btn btn-danger"value="Reset">
+			</div>
+    </div>
+  </form>
+</div>		

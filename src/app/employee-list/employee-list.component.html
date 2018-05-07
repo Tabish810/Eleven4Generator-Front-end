@@ -1,0 +1,135 @@
+<app-header></app-header>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Employee Information</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="employeeName" [(ngModel)]="inputModal.employeeName" placeholder="Employee Name">
+                <label for="fullname">Employee Name</label>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="employeePassword" [(ngModel)]="inputModal.employeePassword" placeholder="Employee Password">
+                <label for="fullname">Employee Password</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="employeeCnic" [(ngModel)]="inputModal.employeeCnic" placeholder="CNIC">
+                <label for="fullname">CNIC</label>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="employeeContact" [(ngModel)]="inputModal.employeeContact" placeholder="Employee Contact">
+                <label for="fullname">Employee Contact</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="employeeAdress" [(ngModel)]="inputModal.employeeAdress" placeholder="Employee Address">
+                <label for="fullname">Employee Address</label>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="date" name="employeeJoinMonth" [(ngModel)]="inputModal.employeeJoinMonth" placeholder="Employee Joining Date">
+                <label for="fullname">Employee Joining Date</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="field">
+                <input type="text" name="type" [(ngModel)]="inputModal.type" placeholder="Employee Type">
+                <label for="fullname">Employee Type</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+              <input type="button" (click)="editPopUpRecords()" class="btn btn-success" value="Submit Record">
+            </div>
+            <div class="col-md-4">
+              <input type="reset" class="btn btn-danger" value="Reset">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--ends of toggle div-->
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h3 class="text-center">Employee Records</h3>
+    <div class="row  search-form"> 
+      <form>
+        <div class="row">
+        <label class="form-group col-md-2">
+          <input routerLink="/employee-entry" value="Add Employee" class="form-control btn btn-warning"/>
+        </label>
+        <div class="col-md-6"></div>
+        <div class="form-group col-md-4">
+            <div class="field">
+                <input type="text" [(ngModel)]="queryString" name="queryString" id="search_bar" placeholder="Search">
+                <label for="fullname">Search</label>
+            </div>
+        </div>
+      </div> 
+      </form>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered search-table">
+      <tr class="info active">
+        <th>S.No</th>
+        <th>EMPLOYEE NAME</th>
+        <th>EMPLOYEE PASSWORD</th>
+        <th>EMPLOYEE CNIC</th>
+        <th>EMPLOYEE CONTACT</th>
+        <th>EMPLOYEE Address</th>
+        <th>EMPLOYEE AMOUNT</th>
+        <th>EMPLOYEE JOINING DATE</th>
+        <th>EMPLOYEE Type</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let item of list | FilterPipe: queryString : searchableList ;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{item.employeeName}}</td>
+        <td>{{item.employeePassword}}</td>
+        <td>{{item.employeeCnic}}</td>
+        <td>{{item.employeeContact}}</td>
+        <td>{{item.employeeAdress}}</td>
+        <td>{{item.employeeAmount}}</td>
+        <td>{{item.employeeJoinMonth}}</td>
+        <td>{{item.type}}</td> 
+        <td>
+          <input type="button" class="btn btn-primary" (click)="onUpdate(item)" data-toggle="modal" data-target="#myModal" value="Edit">
+          <input type="button" class="btn btn-danger" (click)="onClick(item,i)"value="Del">
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

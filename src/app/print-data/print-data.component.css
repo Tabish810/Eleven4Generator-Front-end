@@ -1,0 +1,16 @@
+.p-name{
+  margin-top: 10px;
+  font-size: 12px;
+}
+.duplicate{
+  font-size: 20px;
+}
+.p-data{
+  font-weight: bold;
+  margin-left: 10px;
+}
+.details{
+  margin: 0;
+  margin-left: -10px;
+
+}

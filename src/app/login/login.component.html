@@ -1,0 +1,12 @@
+<div class="container">
+    <!-- <div class="header"><h1>Sign In</h1></div> -->
+    <!-- <div class='info'>Eleven 4 Generator</div>
+     -->
+     <img src="../../assets/images/logo.png"width="200"  alt="Eleven 4 Generator">
+     <h5 class="login-detail">Enter your details for login</h5>
+    <div class="main-container">
+        <input id='username' class='text' [(ngModel)]="input.employeeName" class='inc2' type="text" name="Username" placeholder='Username' value="">
+        <input id='password'(Keyup.Enter)="onLoginSubmit()" class='pass' [(ngModel)]="input.employeePassword" class='inc1' type="password" name="Password" placeholder='Password' value="">
+    </div>
+    <button (click)="onLoginSubmit()">Sign In</button> 
+</div> 

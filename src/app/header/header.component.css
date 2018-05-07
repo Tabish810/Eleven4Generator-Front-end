@@ -1,0 +1,18 @@
+.dropdown-toggle:hover{
+    cursor: pointer; 
+}
+.main{
+   
+    color: white;
+}
+.myNavBar,.navHead{
+    color:white;
+}
+img{
+    margin-top: -12px !important;
+    width: 130px;
+    height: 40px;
+}
+.container-fluid{
+    background-color: rgb(32, 3, 3) !important ;
+}

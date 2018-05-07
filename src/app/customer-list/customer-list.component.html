@@ -1,0 +1,238 @@
+<app-header></app-header>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Customer List</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="name" [(ngModel)]="inputModal.name" id="fullname" placeholder="Customer Name">
+                <label for="fullname">Customer Name</label>
+              </div>
+
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="panel" [(ngModel)]="inputModal.panel" id="fullname" placeholder="Panel">
+                <label for="fullname">Panel</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="phone_no" [(ngModel)]="inputModal.phone_no" id="fullname" placeholder="Phone Number">
+                <label for="fullname">Phone Number</label>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="number" name="paid" [(ngModel)]="inputModal.paid" id="fullname" placeholder="Paid">
+                <label for="fullname">Paid</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-5">
+              <div class="field">
+                <input type="number" name="street_no" [(ngModel)]="inputModal.street_no" id="fullname" placeholder="Street Number">
+                <label for="fullname">Street Number</label>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="date" name="start_month" [(ngModel)]="inputModal.start_month" id="fullname" placeholder="Start Month">
+                <label for="fullname">Start Month</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-5">
+              <div class="field">
+                <input type="number" name="ampere" (keyup)="findAmount()" [(ngModel)]="inputModal.ampere" id="fullname" placeholder="Ampere">
+                <label for="fullname">Ampere</label>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="amount" [(ngModel)]="inputModal.amount" id="fullname" placeholder="Amount">
+                <label for="fullname">Amount</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+              <input type="button" (click)="editPopUpRecords()" class="btn btn-success" data-dismiss="modal" value="Submit Record">
+            </div>
+            <div class="col-md-4">
+              <input type="reset" class="btn btn-danger" value="Reset">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--ends of toggle div-->
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h3 class="text-center">Customer List</h3>
+    <div class="search-form">
+      <form>
+        <div class="row">
+          <label class="form-group col-md-2">
+            <input routerLink="/customer-entry" value="Add Customer" class="form-control btn btn-warning" />
+          </label>
+          <label class="form-group col-md-2">
+            <input value="Print All" (click)="onPrintAll()" type="button" class="form-control btn btn-primary" />
+          </label>
+          <div class="col-md-4"></div>
+          <div class="form-group col-md-4">
+            <div class="field">
+              <input type="text" [(ngModel)]="queryString" name="query" id="search_tab" placeholder="Search">
+              <label for="fullname">Search</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Total Ampere : {{this.calculation.total_ampere_customer}}</h3>
+          </div>
+          <div class="col-md-6">
+            <h3>Ampere Amount : {{this.calculation.total_ampere_customer * 2000}}</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Total Paid : {{this.calculation.total_cusomter_paid}}</h3>
+          </div>
+          <div class="col-md-6">
+            <h3 class="difference">Total Difference : {{ (this.calculation.total_ampere_customer*2000) - this.calculation.total_cusomter_paid}}</h3>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered search-table">
+      <tr class="info active">
+        <th>ID NO</th>
+        <th>NAME</th>
+        <th>PANEL</th>
+        <th>PHONE NUMBER</th>
+        <th>PAID</th>
+        <th>STREET NUMBER</th>
+        <th>START MONTH</th>
+        <th>AMPERE</th>
+        <th>AMOUNT</th>
+        <th>Actions</th>
+      </tr>
+      <tr (click)="passData(item)" *ngFor="let item of list | FilterCustomerPipe:queryString:searchableList; index as i;" [ngClass]="{success: item.checked}">
+        <td>{{item.id_number}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.panel}}</td>
+        <td>{{item.phone_no}}</td>
+        <td>{{item.paid}}</td>
+        <td>{{item.street_no }}</td>
+        <td>{{item.start_month}}</td>
+        <td>{{item.ampere}}</td>
+        <td>{{item.amount}}</td>
+        <td>
+          <input type="button" class="btn btn-primary" (click)="onUpdate(item)" data-toggle="modal" data-target="#myModal" value="Edit">
+          <input type="button" class="btn btn-danger" (click)="onClick(item, i)" value="Defaulter">
+          <input type="button" class="btn btn-warning" (click)="onPrint(item, i)" *ngIf="'vanishPrintButton'" value="Print">
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Printing whole file  -->
+<div *ngIf="printCheck1">
+  <div class="print-data" id="print-data" [ngClass]="{ printAll : 'printCheck1'}" *ngFor="let details of dummy_array1">
+    <p>================================</p>
+    <img src="../../assets/images/print logo.png" width="140" height="100" alt="LOGO">
+    <br/>
+    <br/>
+    <p class="p-name">
+      0334-3488155
+      <br/> 0349-1826876
+      <br/> 0314-6885588
+    </p>
+    <div class="details">
+      <span class="p-data">ID NO:</span>:
+      <span>{{details.id_number}} </span>
+      <br>
+      <span class="p-data">Name</span>:
+      <span>{{details.name}} </span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="p-data">Panel</span> :
+      <span>{{details.panel}}</span>
+      <br/>
+      <span class="p-data">Phone Number </span>:
+      <span> {{details.phone_no}} </span>
+      <br/>
+      <span class="p-data">Paid </span>:
+      <span> {{details.paid}}</span>
+      <br/>
+      <span class="p-data">Street No </span>:
+      <span>{{details.street_no}}</span>
+      <br/>
+      <span class="p-data">Ampere </span>:
+      <span> {{details.ampere}} </span>
+      <br/>
+    </div>
+    <p>================================</p>
+  </div>
+</div>
+<!-- Printing whole file  -->
+<div *ngIf="printCheck2">
+  <div class="print-data" id="print-data" *ngFor="let details of dummy_array2">
+    <p>================================</p>
+    <img src="../../assets/images/print logo.png" width="140" height="100" alt="LOGO">
+    <br/>
+    <br/>
+    <p class="p-name">
+      0334-3488155
+      <br/> 0349-1826876
+      <br/> 0314-6885588
+    </p>
+    <div class="details">
+        <span class="p-data">ID NO:</span>:
+        <span>{{details.id_number}} </span>
+        <br>
+      <span class="p-data">Name</span>:
+      <span>{{details.name}} </span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="p-data">Panel</span> :
+      <span>{{details.panel}}</span>
+      <br/>
+      <span class="p-data">Phone Number </span>:
+      <span> {{details.phone_no}} </span>
+      <br/>
+      <span class="p-data">Paid </span>:
+      <span> {{details.paid}}</span>
+      <br/>
+      <span class="p-data">Street No </span>:
+      <span>{{details.street_no}}</span>
+      <br/>
+      <span class="p-data">Ampere </span>:
+      <span> {{details.ampere}} </span>
+      <br/>
+    </div>
+    <p>================================</p>
+  </div>
+</div>
