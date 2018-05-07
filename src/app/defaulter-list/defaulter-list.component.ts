@@ -3,6 +3,7 @@ import {HttpService} from '../services/http.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {FilterPipe} from '../pipes/feeListPipe.pipe';
 import { NavigateLoginService } from '../services/navigateLogin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-defaulter-list',
@@ -15,7 +16,8 @@ export class DefaulterListComponent implements OnInit {
   searchableList : any = [];
   queryString;
   constructor(private http : HttpService,public toastMessages: ToastsManager
-    , vcr: ViewContainerRef, private navigateService : NavigateLoginService) { 
+    , vcr: ViewContainerRef,private router : Router,
+     private navigateService : NavigateLoginService) { 
       this.toastMessages.setRootViewContainerRef(vcr);
       this.inputModal={
         name : "",
@@ -48,6 +50,7 @@ export class DefaulterListComponent implements OnInit {
        if(data1.statusCode === 200){
         this.toastMessages.success('Data Has been Deleted!', 'Deleted!');
          this.list.splice(index,1);
+         this.router.navigate(['./customer-list']);
        }
        else{
         this.toastMessages.error('Error While Deleting!', 'Deleted!');
@@ -80,7 +83,8 @@ export class DefaulterListComponent implements OnInit {
       this.http.editData(url,items).subscribe(data1 => { 
         if(data1.statusCode !== 505){
           this.toastMessages.success('Data Has been Updated!', 'Updated!');
-          location.reload();
+          // location.reload();
+          this.router.navigate(['./customer-list']);
         }
         else{
           this.toastMessages.error('Error While Updating!', 'Error!!');
@@ -94,10 +98,6 @@ export class DefaulterListComponent implements OnInit {
   }
 
   // Update End
- 
-refresh(){
-  location.reload();
-}
 onClick(item,index){
   this.deleteDefaulterData(item._id,index);
 }
