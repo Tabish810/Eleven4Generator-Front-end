@@ -4,13 +4,23 @@
 form {
   margin: 2em 0;
 }
+.cname{
+  padding: 10px;
+  width: 100px;
+}
 th{
   text-align: center;
+  border: none !important;
+  background-color: #265a88 !important;
+  color: white;
 }
 /**
 * Make the field a flex-container, reverse the order so label is on top.
 */
- 
+input[type=button]{
+  font-size: 14px !important;
+  padding: 10px;
+}
 .field {
   display: flex;
   flex-flow: column-reverse;

@@ -1,4 +1,4 @@
-.container-fluid{
+﻿.container-fluid{
     margin-top:5%;
 }
 form {
@@ -6,6 +6,25 @@ form {
 }
 #search_tab{
     background-color: rgb(238,238,238);
+}
+
+.cid_number,.cpanel,.cstreet,.action_buttons {
+  border: 0px solid black;
+  width: 200px;
+  padding: 10px;
+}
+th{
+  text-align: center;
+  border: none !important;
+  background-color: #265a88 !important;
+  color: white;
+}
+input[type=button]{
+  font-size: 14px !important;
+  padding: 10px;
+}
+.sno{
+  padding: 10px;
 }
 .notPaid{
   background-color: sandybrown;
@@ -42,7 +61,8 @@ input {
   border: 0;
   border-bottom: 1px solid #ccc;
   font-family: 'Courier New', Courier, monospace;
-  -webkit-appearance: none;
+  /* -webkit-appeara
+  nce: none; */
   border-radius: 0;
   padding: 0;
   cursor: text;
@@ -108,18 +128,141 @@ cursor: pointer;
 }
 /*===================print=========================*/
 
-@media print {
-  .container-fluid{
+ @media print {
+   .container-fluid{
     display: none;
+  }  
+  .logo-image1{
+    width: 250px;
+    height: 100px;
+    margin-left:12px;
+   
+    border:0px solid black;
+  }
+  .line2{
+    /* font-size: 15px; */
+    margin: 0;
+    width: 288px;
+    text-align: left;
+    border: 0px solid black;
+    padding: 0px;
+    margin-left: -10px;
+  }
+  .org-dup{
+    border: 1px solid black;
+    padding: 5px;
+    margin-left:70px;
+    margin-top: 5px;
   }
   .print-data{
     display: block;
+    width: 288px;
+    margin-left: 2px;
+    padding: 10px;
+    border: 0px solid black;
+    
   }
+  .logo-image{
+    border: 0px solid black;
+     text-align: center;
+     padding: 0px;
+     /* height: 110px; */
+     /* width: inherit; */
+     border: none;
+     border-bottom: 0px solid black;
+   }
+   .details-child{
+     margin-top: 2px;
+   }
+   .details-child .street_no{
+     margin-left: 17px;
+   }
+   .software-conditions{
+     margin-top: 15%;
+   }
+   .logo-image img{
+     margin-right: 20px;
+   }
+   .details{
+     border-bottom: 0px solid black;
+     padding-left: 15px;
+     font-size: 11px;
+     border: 0px solid black;
+   }
+   .eleven-text{
+     font-size: 13px;
+     border: 1px solid black;
+     width: 245px;
+     margin-left: 14px;
+     margin-top: 5px;
+     text-align: center;
+   }
+  .text-classes > .text-info{
+    margin-left: 0px;
+  } 
+  .details-child .text-info{
+    margin-left:8px; 
+  }
+  .details-child .text-info,.ampere-info{
+    text-align: center;
+    border: 0px solid black;
+    float: left;
+    width: 50px;
+    
+  }
+  .ampere-info{
+    margin-left:17px;
+  }
+  .details-child .balance-amount{
+    text-align: center;
+    border: 0px solid black;
+    float: left;
+    width: 50px;
+    margin-left:17px;
+  }
+  .details-child>.cust-info{
+    margin-left:0;
+  } 
+  .details-child .cust-info{
+    margin-left:46px;
+  }
+  
+  
+  /* .data{
+    width: 100%;
+    border-bottom: 1px solid black;
+  } */
+  .fimg{
+    margin-top: -40px;
+    border-top: 0px solid black;
+  }
+  .simg{
+    margin-top:0px;
+  }
+  .text-info1{
+    float: left;
+    width: 50px;
+  
+  }
+  .text-classes{
+    margin-left: -30px;
+  }
+  /* img{
+    margin-left:0 auto;
+  } */
   .modal{
     display: none;
   }
 }
 
+/* 
+.first-image{
+  border: 2px solid black;
+}
+.last-image{
+  margin-top: -130px;
+  border: 2px solid black;
+} */
 
 
 

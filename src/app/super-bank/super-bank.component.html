@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container-fluid">
   <div class="jumbotron">
-    <h3 class="text-center">Super Bank</h3>
+    <h3 class="text-center">SUPER BANK</h3>
     <div class="row  search-form">
       <form>
         <div class="row">
@@ -12,7 +12,7 @@
         <div class="form-group col-md-4">
             <div class="field">
                 <input type="text" name="searchMonth" [(ngModel)]="searchMonth" id="search_bar" placeholder="Search">
-                <label for="searchMonth">Search</label>
+                <label for="searchMonth">SEARCH</label>
             </div>
         </div>
       </div>
@@ -31,11 +31,11 @@
       </tr>
       <tr *ngFor="let items of list | SearchRecieved:searchMonth; index as i">
         <td>{{i+1}}</td>
-        <td>{{items.from}}</td>
-        <td>{{items.to}}</td>
+        <td>{{items.from | uppercase}}</td>
+        <td>{{items.to | uppercase}}</td>
         <td>{{items.sendAmount}}</td>
-        <td>{{items.month}}</td>
-        <td>{{items.date}}</td>
+        <td>{{items.month | uppercase}}</td>
+        <td>{{items.date |  uppercase}}</td>
       </tr>
     </table>
   </div>

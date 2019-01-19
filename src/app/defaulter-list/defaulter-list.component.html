@@ -4,87 +4,87 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Defaulter Customers</h4>
+        <h4 class="modal-title">DEFAULTER CUSTOMER</h4>
       </div>
       <div class="modal-body">
         <form>
           <div class="form-group row">
             <div class="col-md-5">
-                <div class="field">
-                    <input type="text" name="name"[(ngModel)]="inputModal.name" id="fullname" placeholder="Customer Name">
-                    <label for="fullname">Customer Name</label>
-                </div>
-               
+              <div class="field">
+                <input type="text" name="name" [(ngModel)]="inputModal.name" id="fullname" placeholder="Customer Name">
+                <label for="fullname">CUSTOMER NAME</label>
+              </div>
+
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
-                <div class="field">
-                    <input type="text" name="panel"[(ngModel)]="inputModal.panel" placeholder="Panel">
-                    <label for="fullname">Panel</label>
-                </div>
+              <div class="field">
+                <input type="text" name="panel" [(ngModel)]="inputModal.panel" placeholder="Panel">
+                <label for="fullname">PANEL</label>
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <div class="col-md-5">
-                <div class="field">
-                    <input type="text" name="phone_no"[(ngModel)]="inputModal.phone_no"  placeholder="Phone Number">
-                    <label for="fullname">Phone Number</label>
-                </div>
+              <div class="field">
+                <input type="text" name="phone_no" [(ngModel)]="inputModal.phone_no" placeholder="Phone Number">
+                <label for="fullname">PHONE NUMBER</label>
+              </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
-                <div class="field">
-                    <input type="number" name="paid"[(ngModel)]="inputModal.paid" placeholder="Paid">
-                    <label for="fullname">Paid</label>
-                </div>
+              <div class="field">
+                <input type="number" name="paid" [(ngModel)]="inputModal.paid" placeholder="Paid">
+                <label for="fullname">PAID</label>
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <div class="col-md-5">
-                <div class="field">
-                    <input type="number" name="street_no"[(ngModel)]="inputModal.street_no"  placeholder="Street Number">
-                    <label for="fullname">Street Number</label>
-                </div>
+              <div class="field">
+                <input type="number" name="street_no" [(ngModel)]="inputModal.street_no" placeholder="Street Number">
+                <label for="fullname">STREET NUMBER</label>
+              </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
-                <div class="field">
-                    <input type="date" name="start_month"[(ngModel)]="inputModal.start_month" placeholder="Start Month">
-                    <label for="fullname">Start Month</label>
-                </div>
+              <div class="field">
+                <input type="date" name="start_month" [(ngModel)]="inputModal.start_month" placeholder="Start Month">
+                <label for="fullname">START MONTH</label>
+              </div>
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-md-5">  
-                <div class="field">
-                    <input type="number" name="ampere"(keyup)="findAmount()" [(ngModel)]="inputModal.ampere"  placeholder="Ampere">
-                    <label for="fullname">Ampere</label>
-                </div>
-             </div>
-             <div class="col-md-1"></div>
-             <div class="col-md-5">  
-                <div class="field">
-                    <input type="text" name="amount" [(ngModel)]="inputModal.amount"   placeholder="Amount">
-                    <label for="fullname">Amount</label>
-                </div>
-             </div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="number" name="ampere" (keyup)="findAmount()" [(ngModel)]="inputModal.ampere" placeholder="Ampere">
+                <label for="fullname">AMPERE</label>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <div class="field">
+                <input type="text" name="amount" [(ngModel)]="inputModal.amount" placeholder="Amount">
+                <label for="fullname">AMOUNT</label>
+              </div>
+            </div>
           </div>
           <div class="form-group row">
-              <div class="col-md-2"></div> 
-            <div class="col-md-6">  
-                <div class="field">
-                    <input type="text" name="remarks"[(ngModel)]="inputModal.remarks"  placeholder="Remarks">
-                    <label for="fullname">Remarks</label>
-                </div>
-             </div>
-          </div>   
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+              <div class="field">
+                <input type="text" name="remarks" [(ngModel)]="inputModal.remarks" placeholder="Remarks">
+                <label for="fullname">REMARKS</label>
+              </div>
+            </div>
+          </div>
           <div class="form-group row">
             <div class="col-md-2"></div>
             <div class="col-md-4">
-              <input type="button" (click)="editPopUpRecords()" class="btn btn-success" value="Save Record">
+              <input type="button" (click)="editPopUpRecords()" data-dismiss="modal" class="btn btn-success" value="Save Record">
             </div>
             <div class="col-md-4">
-              <input type="reset" class="btn btn-danger"value="Reset">
+              <input type="reset" class="btn btn-danger" value="Reset">
             </div>
           </div>
         </form>
@@ -98,21 +98,21 @@
 <!--ends of toggle div-->
 <div class="container-fluid">
   <div class="jumbotron">
-    <h3 class="text-center">Defaulter List</h3>
+    <h3 class="text-center">DEFAULTER LIST</h3>
     <div class="row  search-form">
       <form>
         <div class="row">
-        <label class="form-group col-md-2">
-          <input routerLink="/fee-list" value="Add Defaulters" class="form-control btn btn-warning" />
-        </label>
-        <div class="col-md-6"></div>
-        <div class="form-group col-md-4">
+          <label class="form-group col-md-2">
+            <input routerLink="/customer-list" value="ADD DEFAULTER" class="form-control btn btn-warning" />
+          </label>
+          <div class="col-md-6"></div>
+          <div class="form-group col-md-4">
             <div class="field">
-                <input type="text" [(ngModel)]="queryString" name="queryString" id="search_tab" placeholder="Search">
-                <label for="fullname">Search</label>
+              <input type="text" [(ngModel)]="queryString" name="queryString" id="search_tab" placeholder="Search">
+              <label for="fullname">SEARCH</label>
             </div>
+          </div>
         </div>
-      </div>
       </form>
     </div>
   </div>
@@ -125,26 +125,26 @@
         <th>PHONE NUMBER</th>
         <th>PAID</th>
         <th>STREET NUMBER</th>
-        <th>START MONTH</th>
+        <th>MONTH</th>
         <th>AMPERE</th>
         <th>AMOUNT</th>
         <th>REMARKS</th>
-        <th>Actions</th>
+        <th>ACTIONS</th>
       </tr>
       <tr *ngFor="let item of list | FilterPipe: queryString : searchableList; index as i">
         <td>{{i+1}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.panel}}</td>
+        <td>{{item.name | uppercase}}</td>
+        <td class="cname">{{item.panel | uppercase}}</td>
         <td>{{item.phone_no}}</td>
         <td>{{item.paid}}</td>
-        <td>{{item.street_no}}</td>
-        <td>{{item.start_month}}</td>
+        <td class="cname">{{item.street_no | uppercase}}</td>
+        <td>{{item.start_month }}</td>
         <td>{{item.ampere}}</td>
         <td>{{item.amount}}</td>
-        <td>{{item.remarks}}</td>
+        <td>{{item.remarks | uppercase}}</td>
         <td>
-          <input type="button" class="btn btn-primary" (click)="onUpdate(item)" data-toggle="modal" data-target="#myModal" value="Edit">
-          <input type="button" class="btn btn-danger" (click)="onClick(item,i)" value="Del">
+          <input type="button" class="btn btn-primary" (click)="onUpdate(item)" data-toggle="modal" data-target="#myModal" value="EDIT">
+          <input type="button" class="btn btn-danger" (click)="onClick(item,i)" value="DEL">
         </td>
       </tr>
     </table>

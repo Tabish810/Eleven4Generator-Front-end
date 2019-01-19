@@ -20,7 +20,7 @@ import { LOCATION_INITIALIZED } from '@angular/common';
 import { AuthGuard } from './guards/auth.guard';
 import { HeaderComponent } from './header/header.component';
 import { FilterPipe } from './pipes/feeListPipe.pipe';
-import { CustomerListPipe } from './pipes/cutomerListPipe.pipe';
+
 import { SearchRecievedPipe } from './pipes/searchRecieved.pipe';
 
 const appRoutes: Routes = [
@@ -107,6 +107,5 @@ export const routingComponents = [
   EmployeeEntryComponent, CustomerListComponent, EmployeeListComponent,
   DefaulterListComponent, FeeEntryComponent, FeeListComponent,
   EmployeeBankComponent, AdminAccountComponent, SuperBankComponent,
-  PageNotFoundComponent, HeaderComponent, FilterPipe,
-  CustomerListPipe, SearchRecievedPipe
+  PageNotFoundComponent, HeaderComponent, FilterPipe, SearchRecievedPipe
 ];

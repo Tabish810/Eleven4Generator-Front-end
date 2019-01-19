@@ -24,13 +24,14 @@ constructor(private authService : AuthService,private router :Router
     this.toastMessages.setRootViewContainerRef(vcr);
    }
 //login 
-
+submitPromise = false;
 onLoginSubmit(){
    this.authService.authenticateUser(this.input).subscribe(data=>{
      let user = [];
      let obj = {};
        if(data.success){     
          for(let i = 0;i<data.data.length;i++){
+          this.submitPromise = true;
            obj = {
              id : data.data[i]._id,
             name : data.data[i].employeeName,
@@ -41,6 +42,7 @@ onLoginSubmit(){
           this.authService.storeUserData(data.token , user);
           for(let i=0; i<data.data.length;i++){
             if(user[i].type == "Admin" || user[i].type == "admin"){
+              
               this.router.navigate(["/dashboard"]);
             }
             if(user[i].type == "emp"){

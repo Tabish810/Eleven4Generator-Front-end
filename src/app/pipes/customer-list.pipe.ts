@@ -1,15 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
-import {CalculationCustomerService} from '../services/calculationCustomerList.service';
+import { CalculationCustomerService } from '../services/calculationCustomerList.service';
 
 @Pipe({
-  name: 'FilterCustomerPipe',
+  name: 'customerList'
 })
 export class CustomerListPipe implements PipeTransform {
-  constructor(private customerService : CalculationCustomerService) { }
-  public amount: any;
-  public balance: any;
-
+  constructor(private customerService : CalculationCustomerService){}
   transform(value: any, input: string, searchableList: any) {
     if (input) {
       input = input.toLowerCase();
@@ -25,10 +21,11 @@ export class CustomerListPipe implements PipeTransform {
         }
       })
     }
-    if(value) {
-      this.customerService.totalPaidCustomer(value);
-      this.customerService.totalAmpereCustomer(value);
-    }
+    // if(value) {
+    //   console.log(value);
+    //   this.customerService.totalPaidCustomer(value);
+    //   this.customerService.totalAmpereCustomer(value);
+    // }
     return value;
   }
 }

@@ -49,7 +49,7 @@ export class DefaulterListComponent implements OnInit {
       this.http.deleteData(url).subscribe(data1 => {
        if(data1.statusCode === 200){
         this.toastMessages.success('Data Has been Deleted!', 'Deleted!');
-         this.list.splice(index,1);
+        //  this.list.splice(index,1);
          this.router.navigate(['./customer-list']);
        }
        else{
@@ -83,8 +83,8 @@ export class DefaulterListComponent implements OnInit {
       this.http.editData(url,items).subscribe(data1 => { 
         if(data1.statusCode !== 505){
           this.toastMessages.success('Data Has been Updated!', 'Updated!');
-          // location.reload();
-          this.router.navigate(['./customer-list']);
+          location.reload();
+          // this.router.navigate(['./customer-list']);
         }
         else{
           this.toastMessages.error('Error While Updating!', 'Error!!');

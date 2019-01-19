@@ -3,6 +3,13 @@ td{
     text-align: center;
     border:0px solid black !important;
 }
+th{
+    text-align: center;
+    border: none !important;
+    background-color: #265a88 !important ;
+    /* background-color: #265a88 !important; */
+    color: white;
+  }
 body{
     background-image: url(assets/images/sativa.png);
 }

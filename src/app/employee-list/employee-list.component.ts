@@ -95,7 +95,7 @@ onClick(item,index){
      },
       err => {
         console.log(err, "error")
-      }
+      } 
     )
   }
 

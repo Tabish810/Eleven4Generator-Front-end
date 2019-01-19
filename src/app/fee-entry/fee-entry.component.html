@@ -1,21 +1,21 @@
 <app-header></app-header>
 <div class="container main">
   <fieldset>
-    <legend>Fee Entry</legend>
+    <legend>ADD FEE</legend>
   </fieldset>
   <form>
     <div class="form-group row">
       <div class="col-md-5">
         <div class="field">
           <input type="text" name="name" [(ngModel)]="input.name" placeholder="Customer Name">
-          <label for="name">Customer Name</label>
+          <label for="name">CUSTOMER NAME</label>
         </div>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-5">
         <div class="field">
           <input type="text" name="panel" [(ngModel)]="input.panel" placeholder="Panel">
-          <label for="fullname">Panel</label>
+          <label for="fullname">PANEL</label>
         </div>
       </div>
     </div>
@@ -23,14 +23,14 @@
       <div class="col-md-5">
         <div class="field">
           <input type="text" name="phone_no" [(ngModel)]="input.phone_no" placeholder="Phone Number">
-          <label for="phone_no">Phone Number</label>
+          <label for="phone_no">PHONE NUMBER</label>
         </div>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-5">
         <div class="field">
           <input type="number" name="paid" [(ngModel)]="input.paid" placeholder="Paid">
-          <label for="paid">Paid</label>
+          <label for="paid">PAID</label>
         </div>
       </div>
     </div>
@@ -38,14 +38,14 @@
       <div class="col-md-5">
         <div class="field">
           <input type="text" name="street_no" [(ngModel)]="input.street_no" placeholder="Street Number">
-          <label for="street_no">Street Number</label>
+          <label for="street_no">STREET NUMBER</label>
         </div>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-5">
         <div class="field">
           <input type="number" name="ampere" (keyup)="findAmount()" [(ngModel)]="input.ampere" placeholder="Ampere">
-          <label for="ampere">Ampere</label>
+          <label for="ampere">AMPERE</label>
         </div>
       </div>
     </div>
@@ -53,14 +53,14 @@
       <div class="col-md-5">
         <div class="field">
           <input type="number" (keyup)="findBalance()" name="amount" [(ngModel)]="input.amount" placeholder="Amount">
-          <label for="amount">Amount</label>
+          <label for="amount">AMOUNT</label>
         </div>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-5">
         <div class="field">
           <input type="number" name="balance" [(ngModel)]="input.balance" placeholder="Balance">
-          <label for="balance">Balance</label>
+          <label for="balance">BALANCE</label>
         </div>
       </div>
     </div>
@@ -68,24 +68,25 @@
       <div class="col-md-5">
         <div class="field">
           <input type="date" name="month_date" [(ngModel)]="input.month_date">
-          <label for="month_date">Date</label>
+          <label for="month_date">DATE</label>
         </div>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-5">
         <div class="field">
-          <input type="text" name="ID_Number" [(ngModel)]="input.id_number">
+          <input type="text" readonly name="ID_Number" [(ngModel)]="input.id_number">
           <label for="ID_Number">ID Number</label>
         </div>
       </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" *ngIf = 'feeButton'>
       <div class="col-md-2"></div>
       <div class="col-md-4">
-        <input type="button" (click)="insertFee()" *ngIf="sendBtuttonCheck" class="btn btn-success" value="Submit Record">
+        <input type="button" (click)="insertFee()"
+        *ngIf="sendBtuttonCheck" class="btn btn-success" value="SUBMIT RECORD">
       </div>
       <div class="col-md-4">
-        <input type="reset" class="btn btn-danger" value="Reset">
+        <input type="reset" class="btn btn-danger" value="RESET">
       </div>
     </div>
   </form>

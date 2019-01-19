@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Fee List</h4>
+        <h4 class="modal-title">PAID LIST</h4>
       </div>
       <div class="modal-body">
         <form>
@@ -12,7 +12,7 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="text" name="name" [(ngModel)]="input.name" id="name" placeholder="Customer Name">
-                <label for="name">Customer Name</label>
+                <label for="name">CUSTOMER NAME</label>
               </div>
 
             </div>
@@ -20,7 +20,7 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="text" name="Panel" [(ngModel)]="input.panel" id="panel" placeholder="Panel">
-                <label for="panel">Panel</label>
+                <label for="panel">PANEL</label>
               </div>
             </div>
           </div>
@@ -28,14 +28,14 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="text" name="phone_no" [(ngModel)]="input.phone_no" id="phone_no" placeholder="Phone Number">
-                <label for="phone_no">Phone Number</label>
+                <label for="phone_no">PHONE NUMBER</label>
               </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="field">
                 <input type="text" name="month" [(ngModel)]="input.month" id="month" placeholder="Month">
-                <label for="month">Month</label>
+                <label for="month">MONTH</label>
               </div>
             </div>
           </div>
@@ -43,14 +43,14 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="number" (keyup)="paidAmount()" name="paid" [(ngModel)]="input.paid" id="paid" placeholder="Paid">
-                <label for="paid">Paid</label>
+                <label for="paid">PAID</label>
               </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="field">
-                <input type="number" name="street_no" [(ngModel)]="input.street_no" id="street_no" placeholder="Street Number">
-                <label for="street_no">Street Number</label>
+                <input type="text" name="street_no" [(ngModel)]="input.street_no" id="street_no" placeholder="Street Number">
+                <label for="street_no">STREET NUMBER</label>
               </div>
             </div>
           </div>
@@ -58,14 +58,14 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="number" (keyup)="findAmount()" name="ampere" [(ngModel)]="input.ampere" id="number" placeholder="Ampere">
-                <label for="number">Ampere</label>
+                <label for="number">AMPERE</label>
               </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="field">
                 <input type="number" name="amount" (keyup)="findBalance()" id="amount" [(ngModel)]="input.amount" placeholder="Amount">
-                <label for="amount">Amount</label>
+                <label for="amount">AMOUNT</label>
               </div>
             </div>
           </div>
@@ -74,25 +74,26 @@
             <div class="col-md-8">
               <div class="field">
                 <input type="number" name="balance" [(ngModel)]="input.balance" id="balance" placeholder="Balance">
-                <label for="balance">Balance</label>
+                <label for="balance">BALANCE</label>
               </div>
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <input type="button" (click)="editPopUpRecords()" class="btn btn-success" data-dismiss="modal" value="Submit Record">
-            </div>
+            </div> -->
+            <div class="col-md-3"></div>
             <div class="col-md-4">
               <input type="button" (click)="printOrignalItems()" data-dismiss="modal" class="btn btn-warning" value="Print Orignal">
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <input type="reset" class="btn btn-danger" value="Reset">
-            </div>
+            </div> -->
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
       </div>
     </div>
   </div>
@@ -100,47 +101,49 @@
 <!--ends of toggle div-->
 <div class="container-fluid">
   <div class="jumbotron">
-    <h3 class="text-center">Fee List</h3>
+    <h3 class="text-center">PAID LIST</h3>
     <div class="row  search-form">
       <form>
         <label class="form-group col-md-2">
-          <input routerLink="/fee-entry" value="Add Fee" class="form-control btn btn-warning" />
+          <input routerLink="/customer-list" value="ADD FEE" class="form-control btn btn-warning" />
         </label>
         <div class="col-md-2"></div>
         <div class="col-md-4">
           <div class="field">
             <input type="text" [(ngModel)]="queryYear" name="queryYear" id="search_tab" />
-            <label for="fullname">Search By Year</label>
+            <label for="fullname">SEARCH BY YEAR</label>
           </div>
         </div>
         <div class="form-group col-md-4">
           <div class="field">
-            <input type="text" [(ngModel)]="queryString" name="queryString" id="search_tab" placeholder="Search">
-            <label for="fullname">Search</label>
+            <input type="text" [(ngModel)]="queryString" name="queryString" id="search_tab"
+             placeholder="SEARCH">
+            <label for="fullname">SEARCH</label>
           </div>
         </div>
       </form>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h3>Total Paid : {{this.cal.total_paid}} </h3>
+        <h3>TOTAL PAID : {{this.cal.total_paid}} </h3>
       </div>
       <div class="col-md-6">
-        <h3>Total Balance : {{this.cal.total_balance}}</h3>
+        <h3>TOTAL BALANCE : {{this.cal.total_balance}}</h3>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h3>Total Ampere : {{this.cal.total_ampere }}</h3>
+        <h3>TOTAL AMPERE : {{this.cal.total_ampere }}</h3>
       </div>
       <div class="col-md-6">
-        <h3>Ampere Amount : {{this.cal.total_ampere*2000 }}</h3>
+        <h3>AMPERE AMOUNT : {{this.cal.total_ampere*2000 }}</h3>
       </div>
     </div>
   </div>
   <div class="table-responsive">
     <table class="table table-hover table-bordered search-table">
       <tr class="warning active">
+        <th>S.NO</th>
         <th>ID NO</th>
         <th>NAME</th>
         <th>PANEL</th>
@@ -153,26 +156,27 @@
         <th>AMPERE</th>
         <th>AMOUNT</th>
         <th>BALANCE</th>
-        <th>Actions</th>
+        <th>ACTIONS</th>
       </tr>
       <tr *ngFor="let item of list | FilterPipe: queryString : searchableList
       | FilterPipe: queryYear : searchYear; index as i;" [ngClass]="{'notPaid' :item.checked}">
-        <td>{{item.id_number}}</td>
+        <td class="sno">{{i+1}}</td>
+        <td class="cid_number">{{item.id_number}}</td>
         <td>{{item.name}}</td>
-        <td>{{item.panel}}</td>
+        <td class="cpanel">{{item.panel}}</td>
         <td>{{item.phone_no}}</td>
         <td>{{item.month}}</td>
         <td>{{item.year}}</td>
         <td>{{item.month_date}}</td>
         <td>{{item.paid}}</td>
-        <td>{{item.street_no}}</td>
+        <td class="cid_number">{{item.street_no}}</td>
         <td>{{item.ampere}}</td>
         <td>{{item.amount}}</td>
         <td>{{item.balance}}</td>
-        <td>
-          <input type="button" class="btn btn-primary" (click)="onUpdate(item,i)" data-toggle="modal" data-target="#myModal" value="Cash">
-          <input type="button" class="btn btn-warning" (click)="printDuplicateItems(item)" value="Duplicate">
-          <input type="button" (click)="onClick(item,i)" class="btn btn-danger" value="Del">
+        <td class="action_buttons">
+          <input type="button" class="btn btn-primary" (click)="onUpdate(item,i)" data-toggle="modal" data-target="#myModal" value="CASH">
+          <input type="button" class="btn btn-warning" (click)="printDuplicateItems(item)" value="DUP">
+          <input type="button" (click)="onClick(item,i)" class="btn btn-danger" value="DEL">
         </td>
       </tr>
     </table>
@@ -181,48 +185,61 @@
 
 <!--print data-->
 <div class="print-data" id="print-data">
-  <img src="../../assets/images/print logo.png" width="120" height="70" alt="LOGO">
-  <br/>
-  <p class="p-name">0334-3488155
-    <br/>
-  </p>
-  <p class="p-name">0314-6885588
-    <br/>
-  </p>
-  <p class="p-name">0349-1826876 
-    <br/>
-  </p>
-  <div class="duplicate">{{duplicate_slip}}</div>
-  <br/>
-  <div class="details">
-    <span class="p-data">ID Number</span>:
-    <span>{{printData.id_number}} </span>
-    <br/>
-    <span class="p-data">Name</span>:
-    <span>{{printData.name}} </span>
-    <br/>
-    <span class="p-data">Panel</span> :
-    <span>{{printData.panel}}</span>
-    <br/>
-    <span class="p-data">Phone Number </span>:
-    <span> {{printData.phone_no}} </span>
-    <br/>
-    <span class="p-data">Month </span>:
-    <span>{{printData.month}}</span>
-    <span class="p-data">Date </span>:
-    <span>{{printData.month_date}}</span>
-    <br/>
-    <span class="p-data">Paid </span>:
-    <span> {{printData.paid}}</span>
-    <br/>
-    <span class="p-data">Street No </span>:
-    <span>{{printData.street_no}}</span>
-    <br/>
-    <span class="p-data">Ampere </span>:
-    <span> {{printData.ampere}} </span>
-    <br/>
-    <span class="p-data">Balance </span>:
-    <span> {{printData.balance}} </span>
-    <br/>
+  <div class="logo-image">
+    <img src="../../assets/images/kashif.png" class="logo-image1"
+    alt="LOGO">
   </div>
+  <!-- <br/> -->
+  <div class="details">
+    <div class="details-child">
+      <span class="p-data">NAME </span>:
+      <span>{{printData.name | uppercase}} </span>
+      <span class="org-dup">{{duplicate_slip}}</span>
+    </div>
+
+    <!-- <br/> -->
+    <div class="details-child">
+      <span class="p-data">PHONE NUMBER </span>:
+      <span> {{printData.phone_no | uppercase}} </span>
+    </div>
+
+    <!-- <br/> -->
+    <div class="details-child">
+      <span class="p-data">DATE </span>:
+      <span>{{printData.month_date | uppercase}}</span>
+    </div>
+    <!-- <br/> -->
+    <div class="details-child">
+      <span>{{printData.id_number}} </span>
+      <span class="cust-info">{{printData.panel | uppercase}}</span>
+      <span class="street_no">{{printData.street_no | uppercase}}</span>
+    </div>
+    <!-- <br/> -->
+    <div class="details-child">
+      <span>Month </span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      <span class="p-data1">PAID</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+      <span class="p-data1">AMPERE</span>
+      &nbsp;&nbsp;&nbsp;
+      <span class="p-data1">BALANCE</span>
+      <br>
+      <div class="text-info1">{{printData.month | uppercase}}</div>
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
+      <div class="text-classes">
+        <div class="text-info"> {{printData.paid}}</div>
+        <div class="ampere-info"> {{printData.ampere}} </div>
+        <div class="balance-amount"> {{printData.balance}} </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="eleven-text">
+    <b>ELEVEN 4 GENERATOR SERVICES</b>
+  </div>
+  <div class="software-conditions">
+    <img src="../../assets/images/samples/sample2.gif" class="fimg" alt="conditions">
+    <!-- <img src="../../assets/images/kashif.gif" class="fimg" alt="conditions"> -->
+  </div>
+
 </div>

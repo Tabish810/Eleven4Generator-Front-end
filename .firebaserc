@@ -1,0 +1,5 @@
+{
+    "projects":{
+        "default": "eleven4generator-service"
+    }
+}

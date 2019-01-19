@@ -49,8 +49,7 @@ export class FeeListComponent implements OnInit {
       month_date:""
     }];
     
-
-    this.searchableList = ['name', 'phone_no', 'panel', 'month', 'year'];
+    this.searchableList = ['name', 'phone_no', 'panel' ,'street_no','month', 'year'];
     this.searchYear = ['year'];
     this.queryString = '';
     this.queryYear = '';
@@ -172,11 +171,12 @@ export class FeeListComponent implements OnInit {
   duplicate_slip;
   printDuplicateItems(items){
     this.printData = items;
-    this.duplicate_slip = "Duplicate Slip";
+    this.duplicate_slip = "D";
+    this.toastMessages.success('Duplicate slip ready to print', 'Ready!');
   }
   printOrignal(items){
     this.printData = items;
-    this.duplicate_slip = "Orignal Slip";
+    this.duplicate_slip = "OR";
   }
   printOrignalItems(){
     this.printOrignal(this.input);

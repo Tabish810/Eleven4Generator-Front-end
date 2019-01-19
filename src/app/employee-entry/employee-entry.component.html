@@ -1,19 +1,19 @@
 <app-header></app-header>
 <div class="container main" >		
-  <fieldset><legend>Employee Entry</legend></fieldset>
+  <fieldset><legend>ADD EMPLOYEE</legend></fieldset>
   <form>
     <div class="form-group row">
 			<div class="col-md-1"></div>
       <div class="col-md-5">
 					<div class="field">
 							<input type="text" name="name" [(ngModel)]="input.employeeName"  placeholder="Employee Name">
-							<label for="fullname">Employee Name</label>
+							<label for="fullname">EMPLOYEE NAME</label>
 					</div>
       </div>
       <div class="col-md-5">
 					<div class="field">
 							<input type="password" name="password"[(ngModel)]="input.employeePassword"  placeholder="Employee Password">
-							<label for="fullname">Employee Password</label>
+							<label for="fullname">EMPLOYEE PASSWORD</label>
 					</div>
       </div>
     </div>
@@ -28,7 +28,7 @@
       <div class="col-md-5">
 					<div class="field">
 							<input type="text" name="contact" [(ngModel)]="input.employeeContact" placeholder="Employee Contact">
-							<label for="fullname">Employee Contact</label>
+							<label for="fullname">EMPLOYEE CONTACT</label>
 					</div>
       </div>
     </div>
@@ -37,13 +37,13 @@
       <div class="col-md-5">
 					<div class="field">
 							<input type="text" name="address" [(ngModel)]="input.employeeAdress" placeholder="Employee Address">
-							<label for="fullname">Employee Address</label>
+							<label for="fullname">EMPLOYEE ADDRESS</label>
 					</div>
       </div>
       <div class="col-md-5">
 					<div class="field">
 							<input type="number" name="amount" [(ngModel)]="input.employeeAmount" readonly value="0" placeholder="Amount">
-							<label for="fullname">Amount</label>
+							<label for="fullname">AMOUNT</label>
 					</div>
       </div>
     </div>
@@ -52,13 +52,13 @@
 				<div class="col-md-5">
 					<div class="field">
 						<input type="date" name="jDate"[(ngModel)]="input.employeeJoinMonth"  placeholder="Date Of Joining">
-						<label for="fullname">Date Of Joining</label>
+						<label for="fullname">DATE OF JOINING</label>
 				</div>
 				</div>
       <div class="col-md-5">
 					<div class="field">
 							<input type="text" name="type"[(ngModel)]="input.type"  placeholder="Employee Type">
-							<label for="fullname">Employee Type</label>
+							<label for="fullname">EMPLOYEE TYPE</label>
 					</div>
       </div>
 		</div>
@@ -66,10 +66,10 @@
 				<div class="col-md-1"></div>
 			<div class="col-md-2"></div>
 			<div class="col-md-4">
-				<input type="button" class="btn btn-success" (click)="insertEmployee()"value="Submit Record">
+				<input type="button" class="btn btn-success" (click)="insertEmployee()"value="SUBMIT RECORD">
 			</div>
 			<div class="col-md-4">
-				<input type="reset" class="btn btn-danger"value="Reset">
+				<input type="reset" class="btn btn-danger"value="RESET">
 			</div>
     </div>
   </form>

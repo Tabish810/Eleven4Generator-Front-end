@@ -2,6 +2,7 @@ import { Component, OnInit,ViewContainerRef } from '@angular/core';
 import {HttpService} from '../services/http.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { NavigateLoginService } from '../services/navigateLogin.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee-entry',
   templateUrl: './employee-entry.component.html',
@@ -12,7 +13,7 @@ export class EmployeeEntryComponent implements OnInit {
   public input: any;
   public adminBankInput: any;
   public sendToBank: any;
-  constructor(private http : HttpService,public toastMessages: ToastsManager,
+  constructor(private http : HttpService,public toastMessages: ToastsManager,private router : Router,
     private navigateService : NavigateLoginService
     , vcr: ViewContainerRef) { 
       this.toastMessages.setRootViewContainerRef(vcr);
@@ -36,6 +37,7 @@ export class EmployeeEntryComponent implements OnInit {
         if(data1.statusCode === 200){
           this.toastMessages.success('Data Has been Saved!', 'Saved!');
           this.insertSendToBank(data1.newdata._id);
+          this.router.navigate(['employee-list']);
         }
         else{
           this.toastMessages.error('Something went wrong!', 'Error!!');

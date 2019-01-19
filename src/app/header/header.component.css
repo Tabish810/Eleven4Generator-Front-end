@@ -1,12 +1,10 @@
 .dropdown-toggle:hover{
     cursor: pointer; 
 }
-.main{
-   
+
+.navbar-default .navbar-nav>li>a{
     color: white;
-}
-.myNavBar,.navHead{
-    color:white;
+    font-weight: lighter;
 }
 img{
     margin-top: -12px !important;
@@ -14,5 +12,6 @@ img{
     height: 40px;
 }
 .container-fluid{
-    background-color: rgb(32, 3, 3) !important ;
+    /* background-color: rgb(32, 3, 3) !important ; */
+    background-color: #265a88 !important ;
 }

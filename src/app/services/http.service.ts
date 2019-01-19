@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 export class HttpService {
 
   constructor(private _http : Http) { }
-  base_url = "http://localhost:3000/api/";
+  base_url = "https://eleven4generator.herokuapp.com/api/";
   getData(url){
     return this._http.get(`${this.base_url}${url}`).map(data=>{
       return data.json();

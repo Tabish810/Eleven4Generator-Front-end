@@ -19,10 +19,10 @@ export class CustomerEntryComponent implements OnInit {
     this.input = {
       id_number: "",
       name: "",
-      panel: "panel-",
+      panel: "PANEL-",
       phone_no: "",
       paid: "",
-      street_no: "st-",
+      street_no: "STREET-",
       start_month: "",
       ampere: "",
       amount: ""
@@ -43,15 +43,17 @@ export class CustomerEntryComponent implements OnInit {
     if(this.list.length !== 0){
       for (let i = 0; i < this.list.length; i++) {
         if (this.list[i].id_number == this.input.id_number) {
-          console.log(this.input.id_number);
+          // console.log(this.input.id_number);
           this.toastMessages.error('Duplicate key present', 'ERROR!', 1000);
           this.listCheck = false;
           break;
         }else{
+          
           this.http.addData(url, this.input).subscribe(data1 => {
             if (data1.statusCode === 200) {
               this.toastMessages.success('Data Has been Saved!', 'Saved!', 1000);
-              this.router.navigate(['./customer-list']);
+              // this.router.navigate(['./customer-list']);
+              location.reload();
             }
             else {
               this.toastMessages.error('Something went wrong!', 'Error!!', { timeout: 2000 });
@@ -89,7 +91,7 @@ export class CustomerEntryComponent implements OnInit {
   getCustomerList() {
     this.http.getData(this.url).subscribe(data1 => {
       this.list = data1.data;
-      this.input.id_number = this.list.length+1;
+      this.input.id_number = "ID-"+(this.list.length+1);
     },
       err => {
         console.log(err, "Oops It is an error");

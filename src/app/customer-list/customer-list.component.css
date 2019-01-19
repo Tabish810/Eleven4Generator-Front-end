@@ -4,12 +4,34 @@
 form {
   margin: 2em 0;
 }
+.cname{
+  padding: 10px;
+  width: 100px;
+}
 
+table{
+  background-color: #eee !important;
+}
+.sno{
+  padding: 10px;
+}
+input[type=button]{
+  font-size: 14px !important;
+  padding: 10px;
+}
+.cid_number,.cpanel,.cstreet,.action_buttons{
+  border: 0px solid black;
+  width: 200px;
+  padding: 10px;
+}
 #search_tab{
     background-color: rgb(238,238,238);
 }
 th{
   text-align: center;
+  border: none !important;
+  background-color: #265a88 !important;
+  color: white;
 }
 tr:hover{
   cursor: pointer;
@@ -17,8 +39,8 @@ tr:hover{
 .table-bordered{
   border: 0px solid black;
 }
-tr.success{
-  color:darkblue;
+.success{
+  color:blue;
   background-color: rgb(51, 23, 23);
 }
 .difference{
@@ -53,7 +75,7 @@ input {
   border: 0;
   border-bottom: 1px solid #ccc;
   font-family: 'Courier New', Courier, monospace;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   border-radius: 0;
   padding: 0;
   cursor: text;
@@ -120,7 +142,7 @@ cursor: pointer;
 .printAll{
   display: none;
 }
-@media print {
+/* @media print {
   .container-fluid{
     display: none;
   }
@@ -132,5 +154,40 @@ cursor: pointer;
   }
   img{
     margin-left: -10px;
+  }
+} */
+.prntBtn{
+  text-align: center;
+  padding: 3px;
+}
+
+@media print {
+  .container-fluid{
+    display: none;
+  }
+  .print-data{
+    display: block;
+    width: 260px;
+    border: 1px solid black;
+    
+  }
+  .logo-image{
+    border: 1px solid black;
+     text-align: center;
+     padding: 8px;
+     height: 110px;
+     width: inherit;
+     border: none;
+     border-bottom: 1px solid black;
+   }
+   .details{
+     border-bottom: 1px solid black;
+     padding-left: 15px;
+   }
+  /* img{
+    margin-left:0 auto;
+  } */
+  .modal{
+    display: none;
   }
 }

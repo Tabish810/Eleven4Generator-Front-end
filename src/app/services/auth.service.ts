@@ -13,7 +13,7 @@ user : any;
   authenticateUser(user){ 
     let headers =new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/api/employeeLogin',user,{headers : headers})
+    return this.http.post('https://eleven4generator.herokuapp.com/api/employeeLogin',user,{headers : headers})
     .map(res=>res.json());
   }
 

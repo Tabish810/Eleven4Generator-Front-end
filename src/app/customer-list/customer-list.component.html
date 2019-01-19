@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Customer List</h4>
+        <h4 class="modal-title">CUSTOMER LIST</h4>
       </div>
       <div class="modal-body">
         <form>
@@ -12,7 +12,7 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="text" name="name" [(ngModel)]="inputModal.name" id="fullname" placeholder="Customer Name">
-                <label for="fullname">Customer Name</label>
+                <label for="name">CUSTOMER NAME</label>
               </div>
 
             </div>
@@ -20,7 +20,7 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="text" name="panel" [(ngModel)]="inputModal.panel" id="fullname" placeholder="Panel">
-                <label for="fullname">Panel</label>
+                <label for="panel">PANEL</label>
               </div>
             </div>
           </div>
@@ -28,29 +28,29 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="text" name="phone_no" [(ngModel)]="inputModal.phone_no" id="fullname" placeholder="Phone Number">
-                <label for="fullname">Phone Number</label>
+                <label for="phone_no">PHONE NUMBER</label>
               </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="field">
                 <input type="number" name="paid" [(ngModel)]="inputModal.paid" id="fullname" placeholder="Paid">
-                <label for="fullname">Paid</label>
+                <label for="paid">PAID</label>
               </div>
             </div>
           </div>
           <div class="form-group row">
             <div class="col-md-5">
               <div class="field">
-                <input type="number" name="street_no" [(ngModel)]="inputModal.street_no" id="fullname" placeholder="Street Number">
-                <label for="fullname">Street Number</label>
+                <input type="text" name="street_no" [(ngModel)]="inputModal.street_no" id="fullname" placeholder="Street Number">
+                <label for="street_no">STREET NUMBER</label>
               </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="field">
                 <input type="date" name="start_month" [(ngModel)]="inputModal.start_month" id="fullname" placeholder="Start Month">
-                <label for="fullname">Start Month</label>
+                <label for="start_month">START MONTH</label>
               </div>
             </div>
           </div>
@@ -58,14 +58,14 @@
             <div class="col-md-5">
               <div class="field">
                 <input type="number" name="ampere" (keyup)="findAmount()" [(ngModel)]="inputModal.ampere" id="fullname" placeholder="Ampere">
-                <label for="fullname">Ampere</label>
+                <label for="ampere">AMPERE</label>
               </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="field">
                 <input type="text" name="amount" [(ngModel)]="inputModal.amount" id="fullname" placeholder="Amount">
-                <label for="fullname">Amount</label>
+                <label for="amount">AMOUNT</label>
               </div>
             </div>
           </div>
@@ -75,13 +75,13 @@
               <input type="button" (click)="editPopUpRecords()" class="btn btn-success" data-dismiss="modal" value="Submit Record">
             </div>
             <div class="col-md-4">
-              <input type="reset" class="btn btn-danger" value="Reset">
+              <input type="button" (click)="resetFields()" class="btn btn-danger" value="Reset">
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
       </div>
     </div>
   </div>
@@ -89,39 +89,58 @@
 <!--ends of toggle div-->
 <div class="container-fluid">
   <div class="jumbotron">
-    <h3 class="text-center">Customer List</h3>
+    <h3 class="text-center">CUSTOMER LIST</h3>
     <div class="search-form">
       <form>
         <div class="row">
           <label class="form-group col-md-2">
-            <input routerLink="/customer-entry" value="Add Customer" class="form-control btn btn-warning" />
+            <input routerLink="/customer-entry" value="ADD CUSTOMER" class="form-control btn btn-warning" />
           </label>
           <label class="form-group col-md-2">
-            <input value="Print All" (click)="onPrintAll()" type="button" class="form-control btn btn-primary" />
+            <input  type="button" value="PRINT ALL" (click)="onPrintAll()" class="form-control btn btn-primary"
+            style="padding: 3px;" />
           </label>
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <div class="field">
-              <input type="text" [(ngModel)]="queryString" name="query" id="search_tab" placeholder="Search">
-              <label for="fullname">Search</label>
+              <input type="text" [(ngModel)]="querySearch"(keydown.esc)="onKeydown($event)" (Keyup.Enter)="operationReports()" name="querySearch" id="search_tab" placeholder="Search">
+              <label for="fullname">SEARCH</label>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div *ngIf = 'escBool' >
+        <div class="row" id="details_customer_fee">
           <div class="col-md-6">
-            <h3>Total Ampere : {{this.calculation.total_ampere_customer}}</h3>
+            <h3>TOTAL AMPERE : {{total_ampere_customer}}</h3>
           </div>
           <div class="col-md-6">
-            <h3>Ampere Amount : {{this.calculation.total_ampere_customer * 2000}}</h3>
+            <h3>AMPERE AMOUNT : {{total_ampere_customer * 2000}}</h3>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <h3>Total Paid : {{this.calculation.total_cusomter_paid}}</h3>
+            <h3>PAYER'S AMOUNT : {{total_cusomter_paid}}</h3>
           </div>
           <div class="col-md-6">
-            <h3 class="difference">Total Difference : {{ (this.calculation.total_ampere_customer*2000) - this.calculation.total_cusomter_paid}}</h3>
+            <h3 class="difference">TOTAL DIFFERENCE : {{ (total_ampere_customer*2000) - total_cusomter_paid}}</h3>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>BOOKED : {{filledCount}} </h3>
+          </div>
+          <div class="col-md-6">
+            <h3 class="difference">EMPTY : {{emptyCount}}</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>PAID : {{this.feeListPaidCount}} </h3>
+          </div>
+          <div class="col-md-6">
+            <h3 class="difference">UNPAID : {{this.total_cusomter_paid - this.feeListPaidCount}}</h3>
+          </div>
+        </div>
         </div>
       </form>
     </div>
@@ -129,6 +148,7 @@
   <div class="table-responsive">
     <table class="table table-hover table-bordered search-table">
       <tr class="info active">
+        <th>CONNECTIONS</th>
         <th>ID NO</th>
         <th>NAME</th>
         <th>PANEL</th>
@@ -138,48 +158,62 @@
         <th>START MONTH</th>
         <th>AMPERE</th>
         <th>AMOUNT</th>
-        <th>Actions</th>
+        <th>ACTIONS</th>
       </tr>
-      <tr (click)="passData(item)" *ngFor="let item of list | FilterCustomerPipe:queryString:searchableList; index as i;" [ngClass]="{success: item.checked}">
-        <td>{{item.id_number}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.panel}}</td>
+      <tr (click)="passData($event,item)" *ngFor="let item of list | customerList : querySearch : searchList;index as i" [ngClass]="{success: item.checked}">
+        <td class="sno">{{i+1}}</td>
+        <td class="cid_number">{{item.id_number}}</td>
+        <td class="cname">{{item.name | uppercase}}</td>
+        <td class="cpanel">{{item.panel| uppercase}}</td>
         <td>{{item.phone_no}}</td>
         <td>{{item.paid}}</td>
-        <td>{{item.street_no }}</td>
-        <td>{{item.start_month}}</td>
+        <td class="cstreet">{{item.street_no |uppercase}}</td>
+        <td>{{item.start_month | uppercase}}</td>
         <td>{{item.ampere}}</td>
         <td>{{item.amount}}</td>
-        <td>
-          <input type="button" class="btn btn-primary" (click)="onUpdate(item)" data-toggle="modal" data-target="#myModal" value="Edit">
-          <input type="button" class="btn btn-danger" (click)="onClick(item, i)" value="Defaulter">
-          <input type="button" class="btn btn-warning" (click)="onPrint(item, i)" *ngIf="'vanishPrintButton'" value="Print">
+        <td class="action_buttons">
+          <input type="button" class="btn btn-primary" *ngIf="vbuttonBool" (click)="onUpdate(item)" data-toggle="modal" data-target="#myModal"
+            value="EDIT">
+          <input type="button" class="btn btn-danger" (click)="onClick($event,item, i)" value="DEF">
+          <input type="button" class="btn btn-warning" (click)="onPrint(item, i)" *ngIf="'vanishPrintButton'" value="PRINT">
         </td>
       </tr>
     </table>
   </div>
 </div>
-
 <!-- Printing whole file  -->
-<div *ngIf="printCheck1">
-  <div class="print-data" id="print-data" [ngClass]="{ printAll : 'printCheck1'}" *ngFor="let details of dummy_array1">
-    <p>================================</p>
-    <img src="../../assets/images/print logo.png" width="140" height="100" alt="LOGO">
+<div class="print-data" id="print-data" *ngIf="printCheck1">
+  <!-- <div  [ngClass]="{ printAll : 'printCheck1'}"> -->
+    <div class="logo-image">
+    <img src="../../assets/images/print logo.png" width="140" height="75" alt="LOGO">
+    <div>OPERATION REPORT</div>
+  </div>
+  <!-- <br/> -->
+  <div class="details" *ngFor="let printData of dummy_array1">
+    <span class="p-data">NAME</span>:
+    <span>{{printData.name}} </span>
     <br/>
+    <span class="p-data">PHONE NUMBER</span>:
+    <span> {{printData.phone_no}} </span>
     <br/>
-    <p class="p-name">
-      0334-3488155
-      <br/> 0349-1826876
-      <br/> 0314-6885588
-    </p>
-    <div class="details">
-      <span class="p-data">ID NO:</span>:
+    <span>{{printData.id_number}} </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>{{printData.panel}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>{{printData.street_no}}</span>
+    <br/>
+    <span class="p-data">PAY</span>&nbsp;&nbsp;&nbsp;
+    <span class="p-data">AMPERE</span>&nbsp;&nbsp;&nbsp;
+    <br>
+    <span> {{printData.paid}}</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span> {{printData.ampere}} </span>
+    <!-- <br> -->
+  </div>
+  <!-- <div class="details">
       <span>{{details.id_number}} </span>
       <br>
       <span class="p-data">Name</span>:
       <span>{{details.name}} </span>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <span class="p-data">Panel</span> :
       <span>{{details.panel}}</span>
       <br/>
       <span class="p-data">Phone Number </span>:
@@ -188,20 +222,22 @@
       <span class="p-data">Paid </span>:
       <span> {{details.paid}}</span>
       <br/>
-      <span class="p-data">Street No </span>:
       <span>{{details.street_no}}</span>
       <br/>
       <span class="p-data">Ampere </span>:
       <span> {{details.ampere}} </span>
       <br/>
     </div>
-    <p>================================</p>
-  </div>
+    <p>================================</p> -->
 </div>
 <!-- Printing whole file  -->
-<div *ngIf="printCheck2">
-  <div class="print-data" id="print-data" *ngFor="let details of dummy_array2">
-    <p>================================</p>
+<div *ngIf="printCheck2" class="print-data" id="print-data">
+  <div class="logo-image">
+    <img src="../../assets/images/print logo.png" width="140" height="75" alt="LOGO">
+    <div>OPERATION REPORT</div>
+  </div>
+  <div class="details" *ngFor="let printData of dummy_array2">
+    <!-- <p>================================</p>
     <img src="../../assets/images/print logo.png" width="140" height="100" alt="LOGO">
     <br/>
     <br/>
@@ -211,13 +247,11 @@
       <br/> 0314-6885588
     </p>
     <div class="details">
-        <span class="p-data">ID NO:</span>:
-        <span>{{details.id_number}} </span>
-        <br>
+      <span>{{details.id_number}} </span>
+      <br>
       <span class="p-data">Name</span>:
       <span>{{details.name}} </span>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <span class="p-data">Panel</span> :
       <span>{{details.panel}}</span>
       <br/>
       <span class="p-data">Phone Number </span>:
@@ -226,13 +260,64 @@
       <span class="p-data">Paid </span>:
       <span> {{details.paid}}</span>
       <br/>
-      <span class="p-data">Street No </span>:
       <span>{{details.street_no}}</span>
       <br/>
       <span class="p-data">Ampere </span>:
       <span> {{details.ampere}} </span>
       <br/>
     </div>
-    <p>================================</p>
+    <p>================================</p> -->
+    <br>
+    <span class="p-data">NAME</span>:
+    <span>{{printData.name}} </span>
+    <br/>
+    <span class="p-data">PHONE NUMBER </span>:
+    <span> {{printData.phone_no}} </span>
+    <br/>
+    <span>{{printData.id_number}} </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>{{printData.panel}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>{{printData.street_no}}</span>
+    <br/>
+    <span class="p-data">PAY</span>&nbsp;&nbsp;&nbsp;
+    <span class="p-data">AMPERE</span>&nbsp;&nbsp;&nbsp;
+    <br/>
+    <span> {{printData.paid}}</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span> {{printData.ampere}} </span>
+    <!-- <br> -->
+  </div>
+</div>
+
+<!--Print street wise-->
+<!--print data-->
+<div class="print-data" id="print-data" *ngIf="printCheck3">
+  <div class="logo-image">
+    <img src="../../assets/images/print logo.png" width="140" height="75" alt="LOGO">
+    <div>OPERATION REPORT</div>
+  </div>
+  <!-- <br/> -->
+  <div class="details" *ngFor="let printData of operationListCustomerTable">
+    <br>
+    <span class="p-data">NAME</span>:
+    <span>{{printData.name}} </span>
+    <!-- <br/> -->
+    <br/>
+    <span class="p-data">PHONE NUMBER</span>:
+    <span> {{printData.phone_no}} </span>
+    <!-- <br/> -->
+    <br/>
+    <span>{{printData.id_number}} </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>{{printData.panel}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>{{printData.street_no}}</span>
+    <!-- <br/> -->
+    <br/>
+    <span class="p-data">PAY</span>&nbsp;&nbsp;&nbsp;
+    <span class="p-data">AMPERE</span>&nbsp;&nbsp;&nbsp;
+    <!-- <br> -->
+    <br>
+    <span> {{printData.paid}}</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span> {{printData.ampere}} </span>
+    <!-- <br> -->
   </div>
 </div>

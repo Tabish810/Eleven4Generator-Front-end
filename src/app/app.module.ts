@@ -18,13 +18,13 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { NavigateLoginService } from './services/navigateLogin.service';
 import { DataPassingService } from './services/dataPassing.service';
-
-
+import { CustomerListPipe } from './pipes/customer-list.pipe';
 
 @NgModule({
   declarations: [
     routingComponents,
-    AppComponent
+    AppComponent,
+    CustomerListPipe
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./fee-entry.component.css']
 })
 export class FeeEntryComponent implements OnInit {
-
+  dummyList2: any = [];
+  public getdata: any = [];
   public input: any;
   public input2: any;
   public localData: any = [];
@@ -19,7 +20,7 @@ export class FeeEntryComponent implements OnInit {
 
   constructor(private http: HttpService, public toastMessages: ToastsManager
     , vcr: ViewContainerRef, private catchData: DataPassingService,
-  private router : Router) {
+    private router: Router) {
     this.toastMessages.setRootViewContainerRef(vcr);
     this.localData = JSON.parse(localStorage.getItem("user"));
     for (let i = 0; i < this.localData.length; i++) {
@@ -28,16 +29,16 @@ export class FeeEntryComponent implements OnInit {
       this.getEmployeeById(this.empId);
     }
     this.input = {
-      id_number : "",
+      id_number: "",
       name: this.cname,
-      panel: "panel-",
+      panel: "",
       phone_no: "",
       month_date: "",
       paid: "",
-      street_no: "st-",
+      street_no: "",
       ampere: "",
       amount: "",
-      balance: ""
+      balance: "0"
     };
     this.input2 = {
       employeeAmount: "",
@@ -58,55 +59,119 @@ export class FeeEntryComponent implements OnInit {
       console.log(err, "Oops It is an error");
     })
   }
-
-
   newdata;
   dataArray: any = [];
   dataVarId: any;
   amountValue: any;
   list: any = [];
+  dummyList: any = [];
+  checkFound = true;
   employeeEntryUrl = 'getAllEmployees';
   insertFee() {
+    var mlist = [ "January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December" ];
     var url = 'customerFeeEntry';
-    this.http.addData(url, this.input).subscribe(data1 => {
-      if (data1.statusCode === 200) {
-        this.toastMessages.success('Data Has been Saved!', 'Saved!');
-        this.dataArray = JSON.parse(localStorage.getItem("user"))
-        for (let i = 0; i < this.dataArray.length; i++) {
-          this.dataVarId = this.dataArray[i].id;
-        }
-
-        this.http.getData(this.employeeEntryUrl).subscribe(employeeEntryData => {
-          // this.list.push( employeeEntryData.data);
-          this.list = employeeEntryData.data;
-          for (let i = 0; i < this.list.length; i++) {
-            if (this.list[i]._id === this.dataVarId) {
-              this.input2.employeeAmount = this.list[i].employeeAmount;
-              this.updateLoginAmount(this.dataVarId, this.input2.employeeAmount);
-            }
+    var mydate = new Date();
+    if (this.dummyList.length == 0) {
+      console.log(this.dummyList)
+      console.log(this.dummyList.length);
+      this.http.addData(url, this.input).subscribe(data1 => {
+        if (data1.statusCode === 200) {
+          this.toastMessages.success('Fee has been entered!', 'Saved!');
+          this.dataArray = JSON.parse(localStorage.getItem("user"))
+          for (let i = 0; i < this.dataArray.length; i++) {
+            this.dataVarId = this.dataArray[i].id;
           }
-        }, err => {
-          console.log(err, "Oops It is an error");
-        })
+
+          this.http.getData(this.employeeEntryUrl).subscribe(employeeEntryData => {
+            // this.list.push( employeeEntryData.data);
+            this.list = employeeEntryData.data;
+            for (let i = 0; i < this.list.length; i++) {
+              if (this.list[i]._id === this.dataVarId) {
+                this.input2.employeeAmount = this.list[i].employeeAmount;
+                this.updateLoginAmount(this.dataVarId, this.input2.employeeAmount);
+              }
+            }
+          }, err => {
+            console.log(err, "Oops It is an error");
+          })
+        }
+        else {
+          this.toastMessages.error('Something went wrong!', 'Error!!');
+        }
+      },
+        err => {
+          console.log(err, "error");
+        }
+      )
+
+    }
+    
+    if (this.dummyList.length > 0) {
+      for (let i = 0; i < this.dummyList.length; i++) {
+        if (this.dummyList[i].phone_no == this.input.phone_no &&
+           this.dummyList[i].month == mlist[mydate.getMonth()] && 
+           this.dummyList[i].year == `${mydate.getFullYear()}` && 
+           this.dummyList[i].id_number == this.input.id_number
+          ) {
+          this.checkFound = false;
+        }
       }
-      else {
-        this.toastMessages.error('Something went wrong!', 'Error!!');
+      if (!this.checkFound) {
+        this.toastMessages.error('Already Paid!', 'Error!!');
+      } else if (this.checkFound) {
+        this.http.addData(url, this.input).subscribe(data1 => {
+          if (data1.statusCode === 200) {
+            this.toastMessages.success('Fee Entered Successfully!', 'Entered!');
+            this.dataArray = JSON.parse(localStorage.getItem("user"))
+            for (let i = 0; i < this.dataArray.length; i++) {
+              this.dataVarId = this.dataArray[i].id;
+            }
+            this.http.getData(this.employeeEntryUrl).subscribe(employeeEntryData => {
+              this.list = employeeEntryData.data;
+              for (let i = 0; i < this.list.length; i++) {
+                if (this.list[i]._id === this.dataVarId) {
+                  this.input2.employeeAmount = this.list[i].employeeAmount;
+                  this.updateLoginAmount(this.dataVarId, this.input2.employeeAmount);
+                }
+              }
+            }, err => {
+              console.log(err, "Oops It is an error");
+            })
+          }
+          else {
+            this.toastMessages.error('Something went wrong!', 'Error!!');
+          }
+        },
+          err => {
+            console.log(err, "error");
+          }
+        )
       }
-    },
-      err => {
-        console.log(err, "error");;
-      }
-    )
+    }
+
   }
-
-
+  // take out data of all customers
+  feeButton = false;
+  getCustomersData() {
+    var url = 'getAllCustomerFee';
+    this.http.getData(url).subscribe(data => {
+      this.getdata = data.data;
+      this.dummyList = this.getdata;
+      this.toastMessages.success('Ready for fee entry', 'Ready!');
+      this.feeButton= true;
+      // console.log(this.dummyList);
+    }, err => {
+      console.log(err, 'ERROR');
+    });
+  }
 
   updateLoginAmount(id, empAmount) {
     let paidAmount = empAmount;
     paidAmount += this.input.paid;
     var amountDummyObject = {
       employeeAmount: paidAmount,
-      check:true
+      check: true
     };
     var url = 'employeeAmountUpdate/' + id;
     this.http.editData(url, amountDummyObject).subscribe(data1 => {
@@ -150,7 +215,10 @@ export class FeeEntryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getCustomersData();
     this.getCustomerListData();
+    
   }
+
 
 }

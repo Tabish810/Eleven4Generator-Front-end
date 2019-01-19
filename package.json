@@ -21,9 +21,9 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "angular-promise-buttons": "^0.1.23",
     "angular2-flash-messages": "^2.0.5",
     "angular2-jwt": "^0.2.3",
-    
     "core-js": "^2.4.1",
     "flash-messages": "0.0.4",
     "is-online": "^7.0.0",
@@ -53,4 +53,3 @@
     "typescript": "~2.4.2"
   }
 }
-
